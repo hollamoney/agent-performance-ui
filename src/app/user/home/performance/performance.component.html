@@ -1,0 +1,244 @@
+<div class="modal fade" id="performanceModal" tabIndex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form #f="ngForm" (ngSubmit)="f.form.valid ">
+  
+          <div class="modal-header">
+            <h5 class="modal-title">User Details</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+  
+          <div class="modal-body">
+  
+            <div class="alert alert-danger" *ngIf="errorMessage">
+              <strong>Error!</strong> {{errorMessage}}
+            </div>
+  
+            <div *ngIf="router.url === '/home'" class="form-group">
+              <label for="excuseHours">User Id</label>
+              <input
+                type="text"
+                id="excuseHours"
+                name="excuseHours"
+                class="form-control"
+                [(ngModel)]="performance.userId"
+                #author="ngModel"
+                required
+              />
+              <div class="alert-danger" *ngIf="f.submitted">
+                Book author is required.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="endTime"> End Time</label>
+              <input
+                type="datetime-local"
+                id="endTime"
+                name="endTime"
+                class="form-control"
+                [(ngModel)]="performance.endTime"
+                #price="ngModel"
+                required
+              />
+              <div class="alert-danger" *ngIf="f.submitted ">
+                Price is required and should be greater than 0.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="endTime"> Begin Time</label>
+              <input
+                type="datetime-local"
+                id="endTime"
+                name="endTime"
+                class="form-control"
+                [(ngModel)]="performance.beginTime"
+                #price="ngModel"
+                required
+              />
+              <div class="alert-danger" *ngIf="f.submitted ">
+                Price is required and should be greater than 0.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="beginTime"> Date</label>
+              <input
+                type="datetime-local"
+                id="beginTime"
+                name="beginTime"
+                class="form-control"
+                [(ngModel)]="performance.dateInfo"
+                #price="ngModel"
+                required
+              />
+              <div class="alert-danger" *ngIf="f.submitted ">
+                Price is required and should be greater than 0.
+              </div>
+            </div>
+           
+
+            <div class="form-group">
+              <label for="firstName"> Excuse Info</label>
+              <input
+                type="text"
+                id="userId"
+                name="userId"
+                class="form-control"
+                [(ngModel)]="performance.excuseInfo"
+                #price="ngModel"
+                required
+              />
+              <div class="alert-danger" *ngIf="f.submitted ">
+                Price is required and should be greater than 0.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="dateInfo"> Excuse Hours</label>
+              <input
+                type="number"
+                id="dateInfo"
+                name="dateInfo"
+                class="form-control"
+                [(ngModel)]="performance.excuseHours"
+                #price="ngModel"
+                required
+              />
+              <div class="alert-danger" *ngIf="f.submitted ">
+                Price is required and should be greater than 0.
+              </div>
+            </div>
+  
+          </div>
+  
+          <div class="modal-footer">
+            <button class="btn btn-secondary" (click)="hidePerformanceModal()"  data-bs-dismiss="modal">Close</button>
+            <button class="btn btn-primary" (click)="savePerformance()" type="submit">Save Changes</button>
+          </div>
+  
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="updatePerformanceModal" tabIndex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form #f="ngForm" (ngSubmit)="f.form.valid ">
+  
+          <div class="modal-header">
+            <h5 class="modal-title">User Update</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+  
+          <div class="modal-body">
+  
+            <div class="alert alert-danger" *ngIf="errorMessage">
+              <strong>Error!</strong> {{errorMessage}}
+            </div>
+  
+            <div class="form-group">
+              <label for="excuseHours">User Id</label>
+              <input
+                type="text"
+                id="excuseHours"
+                name="excuseHours"
+                class="form-control"
+                [(ngModel)]="performance.userId"
+                #author="ngModel"
+                required
+              />
+              <div class="alert-danger" *ngIf="f.submitted">
+                Book author is required.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="endTime"> End Time</label>
+              <input
+                type="datetime-local"
+                id="endTime"
+                name="endTime"
+                class="form-control"
+                [(ngModel)]="performance.endTime"
+                #price="ngModel"
+                required
+              />
+              <div class="alert-danger" *ngIf="f.submitted ">
+                Price is required and should be greater than 0.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="beginTime"> Date</label>
+              <input
+                type="date"
+                id="beginTime"
+                name="beginTime"
+                class="form-control"
+                [(ngModel)]="performance.beginTime"
+                #price="ngModel"
+                required
+              />
+              <div class="alert-danger" *ngIf="f.submitted ">
+                Price is required and should be greater than 0.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="firstName"> Name</label>
+              <input
+                type="text"
+                id="userId"
+                name="userId"
+                class="form-control"
+                [(ngModel)]="performance.excuseHours"
+                #price="ngModel"
+                required
+              />
+              <div class="alert-danger" *ngIf="f.submitted ">
+                Price is required and should be greater than 0.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="firstName"> Excuse Info</label>
+              <input
+                type="textarea"
+                id="userId"
+                name="userId"
+                class="form-control"
+                [(ngModel)]="performance.excuseInfo"
+                #price="ngModel"
+                required
+              />
+              <div class="alert-danger" *ngIf="f.submitted ">
+                Price is required and should be greater than 0.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="dateInfo"> Date</label>
+              <input
+                type="date"
+                id="dateInfo"
+                name="dateInfo"
+                class="form-control"
+                [(ngModel)]="performance.dateInfo"
+                #price="ngModel"
+                required
+              />
+              <div class="alert-danger" *ngIf="f.submitted ">
+                Price is required and should be greater than 0.
+              </div>
+            </div>
+  
+          </div>
+  
+          <div class="modal-footer">
+            <button class="btn btn-secondary" (click)="hidePerformanceModal()"  data-bs-dismiss="modal">Close</button>
+            <button class="btn btn-primary" (click)="updatePerformance()" type="submit">Save Changes</button>
+          </div>
+  
+        </form>
+      </div>
+    </div>
+  </div>
+  

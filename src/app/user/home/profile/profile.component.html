@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="pt-5">
+  
+      <div class="alert alert-danger" *ngIf="errorMessage">
+        {{errorMessage}}
+      </div>
+  
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+  
+            <div class="col-6">
+              <h3>All Users</h3>
+            </div>
+  
+            <div class="col-6 text-end">
+              <button class="btn btn-primary" (click)="createPerformanceRequest()">Create Performance</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Id</th>
+              <th scope="col">User Id</th>
+              <th scope="col">Begin Time</th>
+              <th scope="col">End Time</th>
+              <th scope="col">Date Info</th>
+              <th scope="col">Excuse Hours</th>
+              <th scope="col">Excuse Info</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of performanceList; index as ind">
+              <th scope="row">{{ind + 1}}</th>
+              <td>{{item.id}}</td>
+              <td>{{item.userId}}</td>
+              <td>{{item.beginTime | date:'short'}}</td>
+              <td>{{item.endTime | date:'short'}}</td>
+              <td>{{item.dateInfo | date}}</td>
+              <td>{{item.excuseHours}}</td>  
+              <td>{{item.excuseInfo}}</td>            
+              <td>
+                <button class="btn btn-primary me-1" (click)="editPerformanceRequest(item)">Edit</button>
+                <button class="btn btn-danger" (click)="deletePerformance(item, ind)">Delete</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <app-performance [performance]="selectedPerformance" (save)="savePerformanceWatcher($event)"></app-performance>
+  
