@@ -1,7 +1,8 @@
 FROM node:latest as node
 WORKDIR /app
 COPY . . 
-RUN npm audit fix --force
+RUN npm install source-map-resolve
+RUN npm audit fix
 RUN npm install
 RUN npm run build --prod
 
