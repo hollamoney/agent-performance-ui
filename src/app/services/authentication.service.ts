@@ -5,7 +5,12 @@ import {User} from "../models/user.model";
 import {HttpClient} from "@angular/common/http";
 import {map} from "rxjs/operators";
 
+if(environment.BASE_URL == null)
+{
+  const API_URL = `/auth/`
+}
 const API_URL = `${environment.BASE_URL}/auth/`
+
 
 @Injectable({
   providedIn: 'root'
