@@ -9,8 +9,9 @@ if(environment.BASE_URL == null)
 {
   const API_URL = `/auth/`
 }
+else{
 const API_URL = `${environment.BASE_URL}/auth/`
-
+}
 
 @Injectable({
   providedIn: 'root'
