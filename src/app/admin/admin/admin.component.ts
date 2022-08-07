@@ -20,6 +20,7 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getAllUsers().subscribe(data => {
       this.userList = data;
+      console.log("mehmet sus olum ne zaman susucaksın ", this.userList)
     });
   }
 
@@ -54,6 +55,17 @@ export class AdminComponent implements OnInit {
   deleteUser(item: User, ind: number) {
     this.userService.deleteUser(item).subscribe(data => {
       this.userList.splice(ind, 1);
+    }, err => {
+      this.errorMessage = 'Unexpected error occurred.';
+      console.log(err);
+    })
+  }
+  makeAdmin(item: User, ind: number) {
+    this.userService.makeAdmin(item).subscribe(data => {
+      this.userService.getAllUsers().subscribe(data => {
+        this.userList = data;
+        console.log("mehmet sus olum ne zaman susucaksın ", this.userList)
+      });
     }, err => {
       this.errorMessage = 'Unexpected error occurred.';
       console.log(err);

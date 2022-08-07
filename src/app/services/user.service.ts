@@ -24,6 +24,11 @@ saveUser(user: User): Observable<any> {
 deleteUser(user: User): Observable<any> {
   return this.http.delete(`${API_URL}/${user.id}`,{headers: this.getHeaders} );
 }
+
+makeAdmin(user: User): Observable<any> {
+  return this.http.post(`${API_URL}/${user.id}`,{headers: this.getHeaders} );
+}
+
 getAllUsers(): Observable<any> {
   console.log(this.getHeaders);
   return this.http.get(API_URL,  {headers: this.getHeaders});

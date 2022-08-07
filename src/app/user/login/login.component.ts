@@ -26,8 +26,12 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.authenticationService.login(this.user).subscribe(data => {
-      this.router.navigate(['/home']);
-      console.log(this.user);
+      if( data.role == "[ROLE_ADMIN]"){
+        this.router.navigate(['/profile']);
+      }else
+      {
+        this.router.navigate(['/home']);
+      }
     }, err => {
       if (err?.status === 409) {
         this.errorMessage = 'Username already exist.';

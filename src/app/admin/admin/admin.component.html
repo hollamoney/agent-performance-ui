@@ -41,6 +41,7 @@
               <td>
                 <button class="btn btn-primary me-1" (click)="editUserRequest(item)">Edit</button>
                 <button class="btn btn-danger" (click)="deleteUser(item, ind)">Delete</button>
+                <button style="margin-left:10px;" class="btn btn-warning" *ngIf="item.roles[0].id == 4" (click)="makeAdmin(item, ind)">Make Admin</button>
               </td>
             </tr>
             </tbody>

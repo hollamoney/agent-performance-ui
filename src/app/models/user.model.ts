@@ -8,4 +8,5 @@ export class User {
     lastName: string = "";
     accessToken: string = "";
     role : string = "Role.USER";
+    roles : Array<any> = [] ;
 }
