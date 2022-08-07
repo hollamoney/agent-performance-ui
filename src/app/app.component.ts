@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, isDevMode } from '@angular/core';
 import { User } from './models/user.model';
 import { AuthenticationService } from './services/authentication.service';
 import { Router } from '@angular/router';
@@ -9,6 +9,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  ngOnInit() {
+    if (isDevMode()) {
+      console.log('Development!');
+    } else {
+      console.log('Production!');
+    }
+  }
+
   title = 'agent-performance-ui';
 
   currentUser : User = new User;
