@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    console.log(this.router.url)
+    console.log("router",this.router.url)
     this.performanceService.getUserPerformances().subscribe(data => {
       this.performanceList = data;
       console.log("data");
